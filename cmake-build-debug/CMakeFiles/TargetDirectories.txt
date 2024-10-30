@@ -1,0 +1,3 @@
+/Users/ruizhi/Documents/HyperSkill/cpp/cmake-build-debug/CMakeFiles/cpp.dir
+/Users/ruizhi/Documents/HyperSkill/cpp/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/ruizhi/Documents/HyperSkill/cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
