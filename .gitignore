@@ -1176,3 +1176,8 @@ next-env.d.ts
 /Writerside/w.tree
 /main
 *.png
+/cmake-build-debug/
+cmake-build-debug
+cmake-build-debug/*
+*.plist
+*.yml
