@@ -1181,3 +1181,5 @@ cmake-build-debug
 cmake-build-debug/*
 *.plist
 *.yml
+main.dSYM/*
+main.dSYM
