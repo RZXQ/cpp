@@ -9,20 +9,20 @@ struct node {
 
 int main() {
     // Initialize nodes with data and a NULL pointer for the next node
-    node n1 = {'A', NULL};
-    node n2 = {'B', NULL};
-    node n3 = {'C', NULL};
-    node n4 = {'D', NULL};
-    node n5 = {'E', NULL};
+    node a = {'A', NULL};
+    node b = {'B', NULL};
+    node c = {'C', NULL};
+    node d = {'D', NULL};
+    node e = {'E', NULL};
 
     // Link the nodes to form the linked list
-    n1.next = &n2;
-    n2.next = &n3;
-    n3.next = &n4;
-    n4.next = &n5;
+    a.next = &b;
+    b.next = &c;
+    c.next = &d;
+    d.next = &e;
 
     // Use a pointer to traverse the list starting from the head node
-    node *p = &n1;
+    node *p = &a;
     while (p != NULL) {
         cout << p->data; // Print the data of the current node
         p = p->next; // Move to the next node
