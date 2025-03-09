@@ -1,3 +1,21 @@
+/*
+2860 输出字母
+
+Description
+创建5个结构体变量，分别存储字母 ′A′ ~ ′E′ ，5个变量链接成一个链表。从第一个结点依次输出链表中的数据。
+
+Input
+此题无输入
+
+Output
+一行，大写字母A到E。
+
+Sample Input 1
+无
+
+Sample Output 1
+ABCDE
+*/
 #include <iostream>
 using namespace std;
 
