@@ -1,3 +1,22 @@
+/*
+2923 3的倍数
+
+Description
+小童想输入一些数字，输入-1停止输入。统计在这些数字中3的倍数有哪些，请你帮小童完成代码吧。
+
+Input
+一行，一些整数数字，最后一个数字为-1。
+
+Output
+一行，能被3整除的数字。
+
+Sample Input 1
+1 2 3 4 5 6 7 8 9 -1
+
+Sample Output 1
+3 6 9
+*/
+
 #include <iostream>
 using namespace std;
 
