@@ -19,7 +19,7 @@ int main() {
 
     // Check if the first number is -1 indicating an empty input scenario
     if (head->data == -1) {
-        cout << -1; // Output -1 since there are no numbers to check
+        cout << 0; // Output -1 since there are no numbers to check
         return 0; // Exit the program since no further input is necessary
     }
 
