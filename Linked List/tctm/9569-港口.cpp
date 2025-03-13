@@ -30,68 +30,67 @@ taitanhao 3
 #include <string>
 using namespace std;
 
-// Define the structure for a ship node in the doubly linked list
+// Structure representing a ship in the doubly linked list
 struct node {
-    string name; // Ship's name
-    int num; // Ship's unique number
+    string name; // Name of the ship
+    int num; // Unique number of the ship
     node *prev; // Pointer to the previous ship
     node *next; // Pointer to the next ship
 };
 
 int main() {
-    // --- Initialize the list with the first ship ---
-    // Create the head node for "tongchenghao" (initial ship)
+    // --- Initialize the starting ship ---
+    // Create and set up the head node for the initial ship
     node *head = new node();
-    head->name = "tongchenghao"; // Set name
-    head->num = 1; // Set number
-    head->next = head->prev = NULL; // No previous or next ships yet
+    head->name = "tongchenghao"; // Assign the initial ship's name
+    head->num = 1; // Assign the initial ship's number
+    head->next = head->prev = NULL; // Set pointers to NULL as it's the only ship
 
-    // --- Input processing for new ships ---
+    // --- Process input for new ships ---
     int n; // Number of new ships to add
-    cin >> n; // Read the number of new ships
-
-    // Loop to add each new ship
+    cin >> n; // Read the count of new ships
     for (int i = 1; i <= n; i++) {
-        // Create a new node for the incoming ship
+        // Loop through each new ship
+        // Create a new node for the ship to be added
         node *newNode = new node();
-        cin >> newNode->name; // Read ship name
-        cin >> newNode->num; // Read ship number
+        cin >> newNode->name; // Input the ship's name
+        cin >> newNode->num; // Input the ship's number
         newNode->next = newNode->prev = NULL; // Initialize pointers to NULL
 
-        int desPos; // Position (ship number) to insert after
+        int desPos; // Target ship number to insert after
         cin >> desPos; // Read the insertion position
 
-        // --- Find the insertion point ---
-        node *p = head; // Start searching from the head
+        // --- Locate the insertion position ---
+        node *p = head; // Start searching from the head of the list
         while (p != NULL) {
+            // Traverse the list
             if (p->num == desPos) {
-                // Found the ship with number desPos
-                // --- Insert the new ship ---
+                // Found the ship with the target number
+                // Insert the new ship to the right of p
                 if (p->next == NULL) {
-                    // Case 1: Insert at the end of the list
-                    p->next = newNode; // Link new ship as next
-                    newNode->prev = p; // Link back to previous ship
+                    // If p is the last ship
+                    p->next = newNode; // Link newNode as the next ship
+                    newNode->prev = p; // Link back to p
                 } else {
-                    // Case 2: Insert between two ships
-                    p->next->prev = newNode; // Update next ship's prev pointer
-                    newNode->next = p->next; // Link new ship to next ship
-                    newNode->prev = p; // Link new ship back to current ship
-                    p->next = newNode; // Link current ship to new ship
+                    // If p is not the last ship
+                    p->next->prev = newNode; // Update the next ship's prev pointer
+                    newNode->next = p->next; // Link newNode to the next ship
+                    newNode->prev = p; // Link newNode back to p
+                    p->next = newNode; // Link p to newNode
                 }
-                break; // Exit loop once inserted
+                break; // Stop searching once inserted
             }
             p = p->next; // Move to the next ship in the list
         }
     }
 
-    // --- Output the final list ---
-    node *p = head; // Start traversal from the head
+    // --- Print the final list ---
+    node *p = head; // Begin traversal from the head
     while (p != NULL) {
-        // Traverse until the end of the list
-        cout << p->name << " " << p->num << endl; // Print ship name and number
-        p = p->next; // Move to the next ship
+        // Continue until the end of the list
+        cout << p->name << " " << p->num << endl; // Output ship name and number
+        p = p->next; // Advance to the next ship
     }
 
-    // Note: Memory cleanup could be added here if required
-    return 0; // Exit program
+    return 0; // End of program
 }
