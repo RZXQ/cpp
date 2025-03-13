@@ -100,16 +100,16 @@ int main() {
                 // If removing head node (first student of queue)
                 if (p->prev == NULL) {
                     head = p->next; // Move head pointer to next node
+                    head->prev = NULL; // Detach current head node from queue
                     p->next = NULL; // Detach current node (p) from queue
                 }
-                // If removing a middle node with previous and next nodes present
-                else if (p->prev != NULL && p->next != NULL) {
+                // If removing tail node (the last student in the queue)
+                else if (p->next == NULL) {
+                    p->prev->next = NULL;
+                    // If removing a middle node with previous and next nodes present
+                } else {
                     p->prev->next = p->next;
                     p->next->prev = p->prev;
-                }
-                // If removing tail node (the last student in the queue)
-                else {
-                    p->prev->next = NULL;
                 }
                 break; // Node found and removed
             }
