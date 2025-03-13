@@ -75,16 +75,16 @@ int main() {
                     }
                 } else {
                     // Insert to the right
-                    // Case 1: Insert in the middle
-                    if (p->prev != NULL && p->next != NULL) {
+                    if (p->next == NULL) {
+                        // Case 1: Insert at the tail
+                        p->next = newNode; // Link target to newNode
+                        newNode->prev = p; // Link newNode back to target
+                    } else {
+                        // Case 2: Insert in the middle
                         p->next->prev = newNode; // Link next student to newNode
                         newNode->next = p->next; // Link newNode to next student
                         newNode->prev = p; // Link newNode back to target
                         p->next = newNode; // Link target to newNode
-                    } else {
-                        // Case 2: Insert at the tail
-                        p->next = newNode; // Link target to newNode
-                        newNode->prev = p; // Link newNode back to target
                     }
                 }
                 break; // Exit loop after insertion
