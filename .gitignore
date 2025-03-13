@@ -5,6 +5,9 @@
 *.pdf
 *.ppt
 *.pptx
+*.docx
+*.exe
+*.zip
 /HyperSkill.mindnode
 # User-specific stuff
 .idea/**/workspace.xml
