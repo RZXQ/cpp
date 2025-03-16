@@ -52,12 +52,15 @@ int main() {
 		for (int c = 0; c < COLS; c++) {
                 cout << image[r][c] << ' ';
 		
+            
             }
             cout << endl;
 	
+        
         }
 	return 0;
 
+    
     }
 
 //输出:
