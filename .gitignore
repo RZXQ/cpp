@@ -8,6 +8,7 @@
 *.docx
 *.exe
 *.zip
+*.dSYM
 /HyperSkill.mindnode
 # User-specific stuff
 .idea/**/workspace.xml
