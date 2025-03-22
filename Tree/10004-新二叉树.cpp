@@ -1,3 +1,30 @@
+/*
+10004 新二叉树
+
+Description
+输入一串二叉树，输出其前序遍历。
+
+Input
+第一行为二叉树的节点数 n。(1≤n≤26)
+后面 n 行，每一个字母为节点，后两个字母分别为其左右儿子。特别地，数据保证第一行读入的节点必为根节点。
+空节点用 * 表示
+
+Output
+二叉树的前序遍历。
+
+Sample Input 1
+6
+abc
+bdi
+cj*
+d**
+i**
+j**
+
+Sample Output 1
+abdicj
+*/
+
 # include <iostream>
 using namespace std;
 
