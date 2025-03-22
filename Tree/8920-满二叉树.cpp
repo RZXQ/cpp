@@ -39,42 +39,55 @@ Sample Output 2
 
 #include <iostream>
 #include <cmath>
+#include <climits>  // Needed for INT_MIN
 using namespace std;
 
+// Global array to store the weights of nodes (indexed from 1 for convenience)
 int nodeWeights[105];
 
 int main() {
     int nodeCount;
-    cin >> nodeCount;
+    cin >> nodeCount; // Read the total number of nodes in the complete binary tree
 
-    int totalDepth = 0; // k -> 层数
+    // Determine the depth (height) of the binary tree based on the node count
+    int totalDepth = 0;
     for (int i = 1; i <= 10; i++) {
-        if (nodeCount <= (pow(2, i) - 1) && nodeCount >= (pow(2, i - 1))) {
+        // A complete binary tree has nodeCount between 2^(i-1) and (2^i) - 1 for depth i
+        if (nodeCount <= (pow(2, i) - 1) && nodeCount >= pow(2, i - 1)) {
             totalDepth = i;
             break;
         }
     }
 
+    // Input weight values for each node sequentially
     for (int i = 1; i <= nodeCount; i++) {
         cin >> nodeWeights[i];
     }
 
-    int maxDepthWeightSum = INT_MIN;
-    int currentDepth = 1;
-    int maxWeightDepth = 1;
+    // Initialize variables to keep track of maximum weight sum and its corresponding depth
+    int maxDepthWeightSum = INT_MIN; // Store the maximum sum found among all depths
+    int currentDepth = 1; // Current depth being calculated (starts from root at depth 1)
+    int maxWeightDepth = 1; // The depth level that currently has the maximum sum
 
+    // Loop through each depth to calculate the sum of weights at each depth
     while (currentDepth <= totalDepth) {
-        int currentDepthWeightSum = 0;
-        for (int i = pow(2, currentDepth - 1); i < (pow(2, currentDepth)); i++) {
+        int currentDepthWeightSum = 0; // Temporary variable to sum weights at the current depth
+
+        // Sum node weights from position 2^(depth - 1) to position (2^depth - 1) for current depth
+        for (int i = pow(2, currentDepth - 1); i < pow(2, currentDepth); i++) {
             currentDepthWeightSum += nodeWeights[i];
         }
 
+        // Update max weight sum and depth if the current depth sum is greater than previous max
         if (currentDepthWeightSum > maxDepthWeightSum) {
             maxDepthWeightSum = currentDepthWeightSum;
             maxWeightDepth = currentDepth;
         }
-        currentDepth++;
+
+        currentDepth++; // Proceed to the next depth level
     }
+
+    // Output the depth level with maximum weight sum
     cout << maxWeightDepth;
 
     return 0;
