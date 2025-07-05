@@ -11,6 +11,9 @@
 *.docx
 *.pptx
 *.pdf
+*.out
+*.exe
+*.app
 # AWS User-specific
 .idea/**/aws.xml
 
